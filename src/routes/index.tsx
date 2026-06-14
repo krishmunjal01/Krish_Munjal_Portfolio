@@ -85,12 +85,21 @@ function Navbar() {
           <a href="#skills" className="transition-colors hover:text-foreground">Skills</a>
           <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
         </div>
-        <a
-          href="#contact"
-          className="rounded-full border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all hover:scale-105 hover:border-primary/60 hover:bg-primary/10"
-        >
-          Let's talk →
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            className="hidden sm:inline-block text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Resume
+          </a>
+          <a
+            href="#contact"
+            className="rounded-full border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all hover:scale-105 hover:border-primary/60 hover:bg-primary/10"
+          >
+            Let's talk →
+          </a>
+        </div>
       </nav>
     </header>
   );
@@ -221,6 +230,10 @@ type Project = {
   buttonLabel: string;
   helperText: string;
   modalContent: React.ReactNode;
+  githubLink?: string;
+  liveLink?: string;
+  demoCredentials?: string;
+  proprietaryLabel?: string;
 };
 
 function EduAutoModal() {
@@ -937,9 +950,12 @@ const projects: Project[] = [
     ],
     tech: ["Python", "Node.js", "React", "Prisma", "WhatsApp API", "OCR"],
     accent: "from-blue-500/20 to-cyan-500/5",
-    buttonLabel: "See How It Works",
-    helperText: "Preview available — no login required",
-    modalContent: <EduAutoModal />
+    buttonLabel: "Explore System",
+    helperText: "Preview available - no login required",
+    modalContent: <EduAutoModal />,
+    githubLink: "https://github.com/krishmunjal01",
+    liveLink: "https://eduauto-demo.com",
+    demoCredentials: "Login: demo@eduauto.com | Pass: demo123"
   },
   {
     tag: "AI",
@@ -955,9 +971,10 @@ const projects: Project[] = [
     tech: ["Python", "Machine Learning", "OpenAI API"],
     accent: "from-cyan-500/20 to-blue-500/5",
     thumbnail: "/certifyai.png",
-    buttonLabel: "See How It Works",
-    helperText: "Preview available — no login required",
-    modalContent: <CertifyAIModal />
+    buttonLabel: "Explore System",
+    helperText: "Preview available - no login required",
+    modalContent: <CertifyAIModal />,
+    proprietaryLabel: "Internal: IEEE CIS CUSB"
   },
   {
     tag: "Automation",
@@ -974,7 +991,8 @@ const projects: Project[] = [
     accent: "from-sky-500/20 to-blue-500/5",
     buttonLabel: "View Demo Flow",
     helperText: "Chat flow preview — no live demo needed",
-    modalContent: <DukaanDostModal />
+    modalContent: <DukaanDostModal />,
+    githubLink: "https://github.com/krishmunjal01"
   }
 ];
 
@@ -1141,7 +1159,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         className="relative flex w-full max-w-5xl max-h-[90vh] flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-2xl"
       >
         <div className="flex items-center justify-between border-b border-border bg-card/90 px-6 py-4 backdrop-blur">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground">
               {project.tag}
             </span>
@@ -1174,6 +1192,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               </div>
             </div>
           </div>
+
+          {project.demoCredentials && (
+            <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-foreground flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span><span className="font-semibold text-primary">Demo Credentials:</span> {project.demoCredentials}</span>
+            </div>
+          )}
 
           {project.modalContent}
         </div>
@@ -1252,7 +1277,39 @@ function ProjectCard({ p, i, onOpenModal }: { p: Project; i: number; onOpenModal
           ))}
         </motion.div>
 
-        <div className="mt-8 flex flex-col items-center">
+        <div className="mt-8 flex flex-col gap-3">
+          {(p.liveLink || p.githubLink || p.proprietaryLabel) && (
+            <div className="grid grid-cols-2 gap-3">
+              {p.proprietaryLabel ? (
+                <div className="col-span-2 flex items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-[11px] sm:text-xs font-medium text-emerald-500 cursor-default">
+                  🔒 {p.proprietaryLabel}
+                </div>
+              ) : (
+                <>
+                  {p.liveLink ? (
+                    <a href={p.liveLink} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-full border border-border bg-card/60 px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-foreground transition-all hover:bg-secondary">
+                      View Project ↗
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center rounded-full border border-border/40 bg-card/20 px-4 py-2.5 text-[11px] sm:text-xs font-medium text-muted-foreground opacity-50 cursor-not-allowed">
+                      No Live Demo
+                    </div>
+                  )}
+                  
+                  {p.githubLink ? (
+                    <a href={p.githubLink} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-full border border-border bg-card/60 px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-foreground transition-all hover:bg-secondary">
+                      View Code ↗
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center rounded-full border border-border/40 bg-card/20 px-4 py-2.5 text-[11px] sm:text-xs font-medium text-muted-foreground opacity-50 cursor-not-allowed">
+                      No Code
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          )}
+
           <Magnetic className="w-full">
             <motion.button
               onClick={onOpenModal}
@@ -1260,7 +1317,7 @@ function ProjectCard({ p, i, onOpenModal }: { p: Project; i: number; onOpenModal
               whileTap={{ scale: 0.97 }}
               className="w-full rounded-full bg-primary py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:premium-shadow"
             >
-              {p.buttonLabel}
+              View Details
             </motion.button>
           </Magnetic>
         </div>
@@ -1416,9 +1473,6 @@ function Achievements() {
   const items = [
     { title: "Oracle Generative AI Professional", detail: "Advanced certification in AI systems" },
     { title: "Oracle AI Foundations", detail: "Foundational AI & ML certification" },
-    { title: "OpenAI Buildathon", detail: "State Level Qualifier" },
-    { title: "Smart India Hackathon", detail: "Internal Round Selection" },
-    { title: "EY Techathon", detail: "Advanced to Round 2" },
     { title: "IEEE CIS Chandigarh University", detail: "Core Team Member building tech initiatives" },
   ];
   return (
@@ -1490,9 +1544,9 @@ function OtherWork() {
         className="mx-auto max-w-6xl"
       >
         <motion.div variants={fadeUp} className="mb-10 max-w-2xl">
-          <div className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">Other Work</div>
+          <div className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">Where It Started</div>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground/90 sm:text-3xl">
-            Additional things I've shipped.
+            Early Freelance Work.
           </h2>
         </motion.div>
 
@@ -1622,7 +1676,7 @@ function ContactImpl() {
           Let's build something <span className="text-primary font-serif italic">impactful</span> together.
         </motion.h2>
         <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-          Have an idea, internship, or problem worth solving? Let's talk.
+          I'm a software engineer based in India, currently studying at Chandigarh University. I'm actively looking for internships and roles where I can build AI automation and real-world products. Have an idea or a problem worth solving? Let's talk.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center justify-center gap-3">
