@@ -1044,41 +1044,44 @@ function ProjectMockup({ accent, label }: { accent: string; label: string }) {
 function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
   if (projectTitle === "EduAuto") {
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center p-4">
-        {/* React Frontend */}
-        <div className="relative z-10 flex w-32 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 py-2 text-xs font-medium text-primary premium-shadow backdrop-blur-md">
-          React Client
+      <div className="flex h-full w-full flex-col items-center justify-center p-2 cursor-default group">
+        <div className="flex gap-2">
+          <div className="rounded-md border border-border bg-card/60 px-3 py-1 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">Admin</div>
+          <div className="rounded-md border border-border bg-card/60 px-3 py-1 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">Teacher</div>
+          <div className="rounded-md border border-border bg-card/60 px-3 py-1 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">Parent</div>
         </div>
         
-        <div className="my-2 flex h-6 w-full items-center justify-center">
-          <div className="h-full w-px bg-gradient-to-b from-primary/50 to-foreground/20"></div>
+        <div className="h-3 w-px bg-border group-hover:bg-blue-500/30 transition-colors"></div>
+        
+        <div className="rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-[10px] font-medium text-primary premium-shadow backdrop-blur-md transition-all hover:scale-105">
+          React Frontend
+        </div>
+        
+        <div className="h-3 w-px bg-border group-hover:bg-blue-500/30 transition-colors"></div>
+        
+        <div className="rounded-md border border-border bg-card/80 px-4 py-1.5 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">
+          Node.js API
+        </div>
+        
+        <div className="relative flex h-4 w-full items-center justify-center group-hover:*:bg-blue-500/30 *:transition-colors">
+          <div className="h-full w-px bg-border"></div>
+          <div className="absolute top-1/2 h-px w-48 bg-border -translate-y-1/2"></div>
+          <div className="absolute left-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
+          <div className="absolute right-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
+        </div>
+        
+        <div className="flex flex-wrap items-center justify-center gap-2 max-w-[260px]">
+          <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">OCR</div>
+          <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">Attendance</div>
+          <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">Results</div>
+          <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">Timetable</div>
+          <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">Notifications</div>
         </div>
 
-        {/* API Layer */}
-        <div className="relative z-10 flex w-40 items-center justify-center rounded-lg border border-border bg-card/60 py-2 text-xs font-medium text-foreground backdrop-blur-md shadow-sm">
-          Node.js API Gateway
-        </div>
+        <div className="h-3 w-px bg-border group-hover:bg-blue-500/30 transition-colors"></div>
 
-        <div className="my-2 flex h-6 w-full items-center justify-center relative">
-          <div className="h-full w-px bg-foreground/20"></div>
-          {/* horizontal line branch */}
-          <div className="absolute top-1/2 w-48 h-px bg-foreground/20 -translate-y-1/2"></div>
-          {/* vertical lines down from branch */}
-          <div className="absolute top-1/2 left-[calc(50%-6rem)] w-px h-3 bg-foreground/20"></div>
-          <div className="absolute top-1/2 right-[calc(50%-6rem)] w-px h-3 bg-foreground/20"></div>
-        </div>
-
-        {/* Services Layer */}
-        <div className="flex gap-4">
-           <div className="flex w-20 flex-col items-center justify-center rounded-lg border border-border bg-card/40 py-2 text-[10px] font-medium text-muted-foreground backdrop-blur-md">
-             Prisma DB
-           </div>
-           <div className="flex w-20 flex-col items-center justify-center rounded-lg border border-border bg-card/40 py-2 text-[10px] font-medium text-muted-foreground backdrop-blur-md">
-             OCR Engine
-           </div>
-           <div className="flex w-20 flex-col items-center justify-center rounded-lg border border-border bg-card/40 py-2 text-[10px] font-medium text-muted-foreground backdrop-blur-md">
-             WhatsApp
-           </div>
+        <div className="rounded-md border border-border bg-card px-4 py-1.5 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">
+          Prisma DB
         </div>
       </div>
     );
@@ -1086,19 +1089,29 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
 
   if (projectTitle === "CertifyAI") {
     return (
-      <div className="flex h-full w-full items-center justify-center p-4">
-        <div className="flex w-full items-center justify-between gap-1 overflow-hidden">
-          {["CSV Data", "Validation", "Generator", "Email Drop"].map((step, i) => (
-             <Fragment key={step}>
-                <div className="flex flex-col items-center gap-2">
-                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-xs font-bold text-primary">{i+1}</div>
-                   <div className="text-[10px] font-medium text-foreground text-center whitespace-nowrap">{step}</div>
-                </div>
-                {i < 3 && <div className="h-px flex-1 bg-border relative">
-                   <div className="absolute right-0 top-1/2 -translate-y-1/2 border-y-4 border-l-4 border-y-transparent border-l-border"></div>
-                </div>}
-             </Fragment>
-          ))}
+      <div className="flex h-full w-full flex-col items-center justify-center p-2 cursor-default">
+        <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
+          CSV Upload
+        </div>
+        <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
+        
+        <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
+          Validation Layer
+        </div>
+        <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
+        
+        <div className="w-48 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2 text-center text-[10px] font-semibold text-emerald-500 premium-shadow transition-all hover:scale-105">
+          Generation Engine
+        </div>
+        <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
+        
+        <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
+          PDF Output + Email
+        </div>
+        <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
+        
+        <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
+          Receive Certificates
         </div>
       </div>
     );
@@ -1106,41 +1119,42 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
 
   // Dukaan Dost
   return (
-    <div className="flex h-full w-full items-center justify-center p-4">
-      <div className="flex w-full max-w-sm items-center justify-between">
-         {/* Left Side: WhatsApp */}
-         <div className="flex flex-col items-center gap-2">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 text-xl shadow-[0_0_15px_rgba(37,211,102,0.1)]">
-               💬
-            </div>
-            <div className="text-[10px] font-medium text-muted-foreground">User</div>
-         </div>
+    <div className="flex h-full w-full flex-col items-center justify-center p-2 cursor-default group">
+      <div className="flex gap-3">
+        <div className="rounded-md border border-border bg-card/60 px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Customer</div>
+        <div className="rounded-md border border-border bg-card/60 px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Shop Owner</div>
+      </div>
+      
+      <div className="h-3 w-px bg-border group-hover:bg-amber-500/30 transition-colors"></div>
+      
+      <div className="rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-5 py-1.5 text-[10px] font-medium text-[#25D366] premium-shadow transition-all hover:scale-105">
+        WhatsApp API Gateway
+      </div>
+      
+      <div className="h-3 w-px bg-border group-hover:bg-amber-500/30 transition-colors"></div>
+      
+      <div className="rounded-md border border-border bg-card/80 px-5 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">
+        Node.js Backend
+      </div>
+      
+      <div className="relative flex h-4 w-full items-center justify-center group-hover:*:bg-amber-500/30 *:transition-colors">
+        <div className="h-full w-px bg-border"></div>
+        <div className="absolute top-1/2 h-px w-48 bg-border -translate-y-1/2"></div>
+        <div className="absolute left-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
+        <div className="absolute right-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
+      </div>
+      
+      <div className="flex gap-3">
+        <div className="rounded-md border border-border bg-secondary/40 px-3 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-amber-500/50">Menu</div>
+        <div className="rounded-md border border-border bg-secondary/40 px-3 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-amber-500/50">Order Flow</div>
+        <div className="rounded-md border border-border bg-secondary/40 px-3 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-amber-500/50">Tracking</div>
+      </div>
 
-         {/* Middle logic */}
-         <div className="flex flex-1 items-center justify-center px-1">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent relative">
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-card px-1 text-[9px] text-muted-foreground border border-border">API</div>
-            </div>
-         </div>
+      <div className="h-3 w-px bg-border group-hover:bg-amber-500/30 transition-colors"></div>
 
-         {/* Core Engine */}
-         <div className="flex flex-col items-center justify-center rounded-xl border border-primary/30 bg-primary/5 p-3 text-center shadow-sm">
-            <div className="text-xs font-bold text-primary whitespace-nowrap">Workflow Engine</div>
-            <div className="mt-1 text-[9px] text-foreground/60">Node.js Logic</div>
-         </div>
-
-         {/* Middle logic */}
-         <div className="flex flex-1 items-center justify-center px-1">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent"></div>
-         </div>
-
-         {/* Right Side: Dashboard */}
-         <div className="flex flex-col items-center gap-2">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-card/50 text-xl shadow-sm">
-               📊
-            </div>
-            <div className="text-[10px] font-medium text-muted-foreground">Dashboard</div>
-         </div>
+      <div className="flex gap-3">
+        <div className="rounded-md border border-border bg-card px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Database</div>
+        <div className="rounded-md border border-border bg-card px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Analytics Dashboard</div>
       </div>
     </div>
   );
