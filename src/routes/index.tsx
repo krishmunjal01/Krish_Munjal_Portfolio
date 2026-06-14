@@ -190,7 +190,7 @@ function Hero() {
             initial={{ rotate: -2 }}
             whileHover={{ scale: 1.02, rotate: 0 }}
             transition={{ type: "spring", stiffness: 220, damping: 18 }}
-            className="relative overflow-hidden rounded-[1.5rem] border border-border/40 bg-card shadow-[0_24px_50px_-12px_rgba(0,0,0,0.15)] transition-all duration-500 hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.7)]"
+            className="relative overflow-hidden rounded-[1.5rem] border border-border/40 bg-card shadow-[0_24px_50px_-12px_rgba(0,0,0,0.15)] transition-shadow duration-500 hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.7)]"
           >
             <img
               src="/krish-converted.jpg"
