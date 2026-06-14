@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { motion, AnimatePresence, type Variants, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, Fragment } from "react";
-
+import Magnetic from "../components/Magnetic";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -97,17 +97,22 @@ function Navbar() {
 }
 
 function Hero() {
+  const { scrollY } = useScroll();
+  const yText = useTransform(scrollY, [0, 800], [0, 150]);
+  const yImage = useTransform(scrollY, [0, 800], [0, -100]);
+  const yBg = useTransform(scrollY, [0, 1000], [0, 200]);
+
   return (
     <section id="top" className="relative flex min-h-[100dvh] items-center overflow-hidden px-6 pt-20">
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
+      <motion.div style={{ y: yBg }} className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
       <motion.div
         initial="hidden"
         animate="show"
         variants={stagger}
         className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16"
       >
-        <div className="order-2 text-center lg:order-1 lg:text-left">
+        <motion.div style={{ y: yText }} className="order-2 text-center lg:order-1 lg:text-left">
 
 
           <motion.h1
@@ -137,25 +142,29 @@ function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-7 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 320, damping: 20 }}
-              href="#work"
-              className="group relative overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
-            >
-              View My Work
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 320, damping: 20 }}
-              href="#contact"
-              className="rounded-full border border-border bg-transparent px-7 py-3.5 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/60 hover:bg-primary/10"
-            >
-              Let's Build Something
-            </motion.a>
+            <Magnetic>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 320, damping: 20 }}
+                href="#work"
+                className="group relative overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
+              >
+                View My Work
+                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+              </motion.a>
+            </Magnetic>
+            <Magnetic>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 320, damping: 20 }}
+                href="#contact"
+                className="rounded-full border border-border bg-transparent px-7 py-3.5 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/60 hover:bg-primary/10"
+              >
+                Let's Build Something
+              </motion.a>
+            </Magnetic>
           </motion.div>
 
           <motion.div
@@ -169,10 +178,9 @@ function Hero() {
             <span className="text-foreground/80">IEEE CIS Core Team</span>
           </motion.div>
 
-
-        </div>
-
+        </motion.div>
         <motion.div
+          style={{ y: yImage }}
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
@@ -1245,15 +1253,16 @@ function ProjectCard({ p, i, onOpenModal }: { p: Project; i: number; onOpenModal
         </motion.div>
 
         <div className="mt-8 flex flex-col items-center">
-          <motion.button
-            onClick={onOpenModal}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="w-full rounded-full bg-primary py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:premium-shadow"
-          >
-            {p.buttonLabel}
-          </motion.button>
-
+          <Magnetic className="w-full">
+            <motion.button
+              onClick={onOpenModal}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="w-full rounded-full bg-primary py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:premium-shadow"
+            >
+              {p.buttonLabel}
+            </motion.button>
+          </Magnetic>
         </div>
       </div>
     </motion.article>
