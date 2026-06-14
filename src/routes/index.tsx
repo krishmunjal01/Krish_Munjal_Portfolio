@@ -234,6 +234,7 @@ type Project = {
   liveLink?: string;
   demoCredentials?: string;
   proprietaryLabel?: string;
+  screenshots?: string[];
 };
 
 function EduAutoModal() {
@@ -950,12 +951,23 @@ const projects: Project[] = [
     ],
     tech: ["Python", "Node.js", "React", "Prisma", "WhatsApp API", "OCR"],
     accent: "from-blue-500/20 to-cyan-500/5",
+    thumbnail: "/eduautothumbnail.png",
     buttonLabel: "Explore System",
     helperText: "Preview available - no login required",
     modalContent: <EduAutoModal />,
-    githubLink: "https://github.com/krishmunjal01",
-    liveLink: "https://eduauto-demo.com",
-    demoCredentials: "Login: demo@eduauto.com | Pass: demo123"
+    githubLink: "https://github.com/krishmunjal01/EduAuto",
+    liveLink: "https://edu-auto.vercel.app/",
+    demoCredentials: "Login: testadmin@gmail.com | Pass: testadmin",
+    screenshots: [
+      "/eduauto/1.png",
+      "/eduauto/2.png",
+      "/eduauto/3.png",
+      "/eduauto/4.png",
+      "/eduauto/5.png",
+      "/eduauto/6.png",
+      "/eduauto/7.png",
+      "/eduauto/8.png",
+    ]
   },
   {
     tag: "AI",
@@ -974,7 +986,8 @@ const projects: Project[] = [
     buttonLabel: "Explore System",
     helperText: "Preview available - no login required",
     modalContent: <CertifyAIModal />,
-    proprietaryLabel: "Internal: IEEE CIS CUSB"
+    proprietaryLabel: "Internal: IEEE CIS CUSB",
+    screenshots: ["/certify/1.png", "/certify/2.png", "/certify/4.png", "/certify/5.png"]
   },
   {
     tag: "Automation",
@@ -992,7 +1005,7 @@ const projects: Project[] = [
     buttonLabel: "View Demo Flow",
     helperText: "Chat flow preview — no live demo needed",
     modalContent: <DukaanDostModal />,
-    githubLink: "https://github.com/krishmunjal01"
+    githubLink: "https://github.com/krishmunjal01/Dukaan-Dost"
   }
 ];
 
@@ -1134,13 +1147,30 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
 }
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const screenshots = project.screenshots || (project.thumbnail ? [project.thumbnail] : []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        if (isLightboxOpen) {
+          setIsLightboxOpen(false);
+        } else {
+          onClose();
+        }
+      }
+      if (screenshots.length > 1) {
+        if (e.key === "ArrowLeft") {
+          setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1);
+        } else if (e.key === "ArrowRight") {
+          setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1);
+        }
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [onClose, isLightboxOpen, screenshots.length]);
 
   return (
     <motion.div
@@ -1177,9 +1207,45 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <div className="mb-10 grid gap-6 md:grid-cols-2">
             <div>
               <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Screenshots</div>
-              <div className="aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card/50 flex items-center justify-center">
-                {project.thumbnail ? (
-                  <img src={project.thumbnail} alt="Screenshot" className="h-full w-full object-cover object-top opacity-50 grayscale transition-all hover:grayscale-0 hover:opacity-100" />
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card/50 flex items-center justify-center group">
+                {screenshots.length > 0 ? (
+                  <>
+                    <motion.img 
+                      key={currentImage}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      src={screenshots[currentImage]} 
+                      alt="Screenshot" 
+                      onClick={() => setIsLightboxOpen(true)}
+                      className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition-opacity hover:opacity-100 cursor-zoom-in" 
+                    />
+                    {screenshots.length > 1 && (
+                      <>
+                        <button 
+                          onClick={() => setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1)} 
+                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 text-foreground opacity-0 backdrop-blur transition-opacity hover:bg-background group-hover:opacity-100"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <button 
+                          onClick={() => setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1)} 
+                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 text-foreground opacity-0 backdrop-blur transition-opacity hover:bg-background group-hover:opacity-100"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5 rounded-full bg-background/60 px-2 py-1 backdrop-blur">
+                          {screenshots.map((_, idx) => (
+                            <button 
+                              key={idx} 
+                              onClick={() => setCurrentImage(idx)}
+                              className={`h-1.5 w-1.5 rounded-full transition-colors ${idx === currentImage ? 'bg-primary' : 'bg-primary/30 hover:bg-primary/60'}`} 
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </>
                 ) : (
                   <span className="text-sm text-muted-foreground">Screenshots Area</span>
                 )}
@@ -1203,6 +1269,58 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           {project.modalContent}
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {isLightboxOpen && screenshots.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 md:p-8 backdrop-blur-2xl"
+            onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
+          >
+            <button 
+              className="absolute right-4 top-4 md:right-8 md:top-8 rounded-full border border-border bg-card/50 p-3 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
+              onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            
+            <motion.div 
+              className="relative flex items-center justify-center w-full h-full max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img 
+                key={`lb-${currentImage}`}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                src={screenshots[currentImage]} 
+                alt="Screenshot Fullscreen" 
+                className="max-h-full max-w-full object-contain rounded-xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)]"
+              />
+            </motion.div>
+
+            {screenshots.length > 1 && (
+              <>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1); }} 
+                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-border bg-card/50 p-3 md:p-4 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1); }} 
+                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-border bg-card/50 p-3 md:p-4 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -1488,15 +1606,15 @@ function Achievements() {
           <div className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-primary">Recognition</div>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Achievements & experience.</h2>
         </motion.div>
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="flex flex-col gap-4 max-w-3xl">
           {items.map((it, i) => (
             <motion.div
               key={it.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -32 : 32 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.02, x: i % 2 === 0 ? 4 : -4 }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ scale: 1.01, x: 4 }}
               className="group flex items-center gap-4 rounded-2xl border border-border bg-card/50 p-5 backdrop-blur-xl transition-[border-color,background] hover:border-primary/50 hover:bg-card/80"
             >
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-border bg-secondary/60 font-mono text-xs text-primary transition-all group-hover:border-primary/40 group-hover:bg-primary group-hover:text-primary-foreground">
