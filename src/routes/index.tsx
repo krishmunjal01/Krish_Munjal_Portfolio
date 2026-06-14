@@ -52,8 +52,8 @@ function TypingRotator() {
   }, [text, deleting, wordIndex]);
 
   return (
-    <span className="relative inline-flex items-baseline">
-      <span className="text-shimmer">{text}</span>
+    <span className="relative inline-flex items-baseline font-medium text-primary">
+      <span className="opacity-90">{text}</span>
       <span className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-primary animate-caret" />
     </span>
   );
@@ -99,11 +99,8 @@ function Navbar() {
 function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100dvh] items-center overflow-hidden px-6 pt-20">
-      <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "var(--gradient-glow)" }}
-      />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
       <motion.div
         initial="hidden"
         animate="show"
@@ -111,24 +108,18 @@ function Hero() {
         className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16"
       >
         <div className="order-2 text-center lg:order-1 lg:text-left">
-          <motion.div variants={fadeUp} className="mb-5 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            Open to Internships & Collaborations
-          </motion.div>
+
 
           <motion.h1
             variants={fadeUp}
-            className="text-balance text-5xl font-black leading-[1.02] tracking-tight sm:text-7xl md:text-8xl animate-name-glow"
+            className="text-balance text-5xl font-black leading-[1.02] tracking-tight sm:text-7xl md:text-8xl text-foreground"
           >
             <motion.span
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
               className="inline-block cursor-default"
             >
-              Krish <span className="text-gradient">Munjal</span>
+              Krish <span className="text-primary italic font-serif tracking-normal">Munjal</span>
             </motion.span>
           </motion.h1>
 
@@ -151,7 +142,7 @@ function Hero() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 320, damping: 20 }}
               href="#work"
-              className="group relative overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all duration-300 hover:brightness-110"
+              className="group relative overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
             >
               View My Work
               <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -182,26 +173,16 @@ function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="group relative order-1 mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:order-2 lg:max-w-none"
         >
-          {/* Ambient glow */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
-            style={{ background: "var(--gradient-primary)", opacity: 0.18 }}
-          />
-          {/* Decorative offset frame */}
-          <div
-            aria-hidden
-            className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-[1.5rem] border border-primary/30"
-          />
           <motion.div
-            whileHover={{ scale: 1.03 }}
+            initial={{ rotate: -2 }}
+            whileHover={{ scale: 1.02, rotate: 0 }}
             transition={{ type: "spring", stiffness: 220, damping: 18 }}
-            className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-card shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)] transition-shadow duration-500 group-hover:shadow-[0_30px_90px_-20px_oklch(0.62_0.19_256/0.45)]"
+            className="relative overflow-hidden rounded-[1.5rem] border border-border/40 bg-card shadow-[0_24px_50px_-12px_rgba(0,0,0,0.15)] transition-all duration-500 hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_32px_60px_-15px_rgba(0,0,0,0.7)]"
           >
             <img
               src="/krish-converted.jpg"
@@ -211,11 +192,6 @@ function Hero() {
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";
               }}
-            />
-            {/* Subtle dark overlay to match theme */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent"
             />
           </motion.div>
         </motion.div>
@@ -513,7 +489,7 @@ function EduAutoModal() {
         <p className="mb-6 text-sm text-muted-foreground max-w-2xl mx-auto">
           EduAuto is a production-oriented system built to solve real institutional problems, not a prototype. It demonstrates system design thinking, real-world problem understanding, and scalable architecture decisions.
         </p>
-        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground shadow-[var(--shadow-glow)]">
+        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground premium-shadow">
           “Not built as a project. Built as a product.”
         </div>
       </section>
@@ -733,7 +709,7 @@ function CertifyAIModal() {
         <p className="mb-6 text-sm text-muted-foreground max-w-2xl mx-auto">
           CertifyAI demonstrates a strong understanding of workflow automation, the ability to design scalable processing pipelines, and a focus on real-world usability over theoretical complexity.
         </p>
-        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground shadow-[var(--shadow-glow)]">
+        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground premium-shadow">
           “Designed to automate processes at scale, not just generate files.”
         </div>
       </section>
@@ -931,7 +907,7 @@ function DukaanDostModal() {
         <p className="mb-6 text-sm text-muted-foreground max-w-2xl mx-auto">
           Dukaan Dost is not just a chatbot. It is a <strong>two-sided system</strong>: Customer-facing automation (chat workflows) and Owner-facing intelligence (dashboard + analytics).
         </p>
-        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground shadow-[var(--shadow-glow)]">
+        <div className="inline-block rounded-2xl bg-primary px-8 py-4 text-lg font-bold tracking-wide text-primary-foreground premium-shadow">
           “Not just automating replies — enabling smarter business decisions.”
         </div>
       </section>
@@ -1008,7 +984,7 @@ function renderImpact(text: string) {
 function ProjectMockup({ accent, label }: { accent: string; label: string }) {
   return (
     <div className={`relative mb-6 h-32 overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${accent}`}>
-      <div className="absolute inset-0 grid-bg opacity-25" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-25" />
       <div className="absolute left-3 top-3 flex gap-1.5">
         <span className="h-2 w-2 rounded-full bg-foreground/20" />
         <span className="h-2 w-2 rounded-full bg-foreground/20" />
@@ -1031,7 +1007,7 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center p-4">
         {/* React Frontend */}
-        <div className="relative z-10 flex w-32 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 py-2 text-xs font-medium text-primary shadow-[var(--shadow-glow)] backdrop-blur-md">
+        <div className="relative z-10 flex w-32 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 py-2 text-xs font-medium text-primary premium-shadow backdrop-blur-md">
           React Client
         </div>
         
@@ -1273,11 +1249,11 @@ function ProjectCard({ p, i, onOpenModal }: { p: Project; i: number; onOpenModal
             onClick={onOpenModal}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full rounded-full bg-primary py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[var(--shadow-glow)]"
+            className="w-full rounded-full bg-primary py-3 text-center text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:premium-shadow"
           >
             {p.buttonLabel}
           </motion.button>
-          <span className="mt-2 text-[11px] text-muted-foreground/80">{p.helperText}</span>
+
         </div>
       </div>
     </motion.article>
@@ -1415,7 +1391,7 @@ function Skills() {
                     className="group/item flex items-center justify-between border-b border-border/60 pb-3 text-foreground transition-colors last:border-0 hover:text-primary"
                   >
                     <span className="font-medium">{s}</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-dot-pulse transition-transform group-hover/item:scale-150" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse transition-transform group-hover/item:scale-150" />
                   </motion.li>
                 ))}
               </motion.ul>
@@ -1553,7 +1529,7 @@ function OtherWork() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-primary py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[var(--shadow-glow)]"
+                  className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-primary py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:premium-shadow"
                 >
                   View Website
                 </motion.a>
@@ -1585,7 +1561,7 @@ function CopyEmailButton() {
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground animate-pulse-glow transition-all duration-300 hover:brightness-110"
+      className="group relative rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
     >
       {copied ? "Copied to Clipboard!" : "Send Me an Email"}
       {!copied && <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>}
@@ -1616,7 +1592,7 @@ function CopyEmailLink({ children, className }: { children: React.ReactNode; cla
 function ContactImpl() {
   return (
     <section id="contact" className="relative px-6 py-32">
-      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-glow)" }} />
+      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--background)" }} />
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -1634,7 +1610,7 @@ function ContactImpl() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-balance text-5xl font-bold tracking-tight sm:text-6xl"
         >
-          Let's build something <span className="text-gradient">impactful</span> together.
+          Let's build something <span className="text-primary font-serif italic">impactful</span> together.
         </motion.h2>
         <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
           Have an idea, internship, or problem worth solving? Let's talk.
