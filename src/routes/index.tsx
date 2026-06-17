@@ -87,13 +87,6 @@ function Navbar() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="/resume.pdf"
-            target="_blank"
-            className="hidden sm:inline-block text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Resume
-          </a>
-          <a
             href="#contact"
             className="rounded-full border border-border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all hover:scale-105 hover:border-primary/60 hover:bg-primary/10"
           >
@@ -1002,10 +995,18 @@ const projects: Project[] = [
     ],
     tech: ["Node.js", "WhatsApp API"],
     accent: "from-sky-500/20 to-blue-500/5",
+    thumbnail: "/dukaandostthumbnail.jpg",
     buttonLabel: "View Demo Flow",
     helperText: "Chat flow preview — no live demo needed",
     modalContent: <DukaanDostModal />,
-    githubLink: "https://github.com/krishmunjal01/Dukaan-Dost"
+    githubLink: "https://github.com/krishmunjal01/Dukaan-Dost",
+    screenshots: [
+      "/dukaan dost/1.jpg",
+      "/dukaan dost/2.jpg",
+      "/dukaan dost/3.jpg",
+      "/dukaan dost/4.jpg",
+      "/dukaan dost/5.jpg"
+    ]
   }
 ];
 
