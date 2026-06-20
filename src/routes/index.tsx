@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence, type Variants, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, Fragment } from "react";
 import Magnetic from "../components/Magnetic";
+import { ContactModal } from "../components/ContactModal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -1739,49 +1740,28 @@ function OtherWork() {
 }
 
 function CopyEmailButton() {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = "mailto:krishmunjal126@gmail.com";
-      return;
-    }
-    navigator.clipboard.writeText("krishmunjal126@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
   return (
-    <motion.button
-      onClick={handleCopy}
-      whileHover={{ scale: 1.06 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
-    >
-      {copied ? "Copied to Clipboard!" : "Send Me an Email"}
-      {!copied && <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>}
-    </motion.button>
+    <ContactModal>
+      <motion.button
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="group relative rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground premium-shadow transition-all duration-300 hover:brightness-110"
+      >
+        Send Me an Email
+        <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+      </motion.button>
+    </ContactModal>
   );
 }
 
 function CopyEmailLink({ children, className }: { children: React.ReactNode; className?: string }) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = "mailto:krishmunjal126@gmail.com";
-      return;
-    }
-    navigator.clipboard.writeText("krishmunjal126@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
   return (
-    <button onClick={handleCopy} className={className}>
-      {copied ? "Copied!" : children}
-    </button>
+    <ContactModal>
+      <button className={className}>
+        {children}
+      </button>
+    </ContactModal>
   );
 }
 
