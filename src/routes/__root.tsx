@@ -72,18 +72,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
+      { title: "Krish Munjal - Building AI systems that give you your time back." },
       { name: "description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
+      { name: "author", content: "Krish Munjal" },
+      { property: "og:title", content: "Krish Munjal - Portfolio" },
       { property: "og:description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:site", content: "@KrishMunjal" },
+      { name: "twitter:title", content: "Krish Munjal - Portfolio" },
       { name: "twitter:description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/797dda27-9ae4-4698-9057-72d7e7b2ec70/id-preview-be7189f5--59ba1fcb-a9d6-4043-8821-75b749c11f49.lovable.app-1780678442725.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/797dda27-9ae4-4698-9057-72d7e7b2ec70/id-preview-be7189f5--59ba1fcb-a9d6-4043-8821-75b749c11f49.lovable.app-1780678442725.png" },
     ],
     links: [
       {

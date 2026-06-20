@@ -5,9 +5,9 @@ import Magnetic from "../components/Magnetic";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Krish Munjal — AI systems that replace manual work" },
+      { title: "Krish Munjal - Building AI systems that give you your time back." },
       { name: "description", content: "I build AI-powered systems that replace manual work with automation. Real-world SaaS, AI tools, and workflow products." },
-      { property: "og:title", content: "Krish Munjal — AI Product Builder" },
+      { property: "og:title", content: "Krish Munjal - AI Product Builder" },
       { property: "og:description", content: "AI-powered systems, SaaS products, and automation for real-world workflows." },
     ],
   }),
@@ -304,7 +304,7 @@ function EduAutoModal() {
       <section>
         <h4 className="mb-6 text-xl font-bold tracking-tight">End-to-End Workflow Thinking</h4>
         <p className="mb-6 text-sm text-muted-foreground">EduAuto is designed around connected workflows, not isolated features.</p>
-        
+
         <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <h5 className="mb-6 font-semibold text-primary">Example: Result Processing Pipeline</h5>
           <div className="relative space-y-6 border-l-2 border-primary/20 pl-6 ml-4">
@@ -385,7 +385,7 @@ function EduAutoModal() {
             <li>• Maintains identity across academic years</li>
           </ul>
         </div>
-        
+
         <div className="rounded-2xl border border-border bg-card/40 p-6">
           <h5 className="mb-3 font-semibold text-foreground flex items-center gap-2">
             <span className="text-primary">📅</span> Smart Timetable Engine
@@ -545,9 +545,9 @@ function CertifyAIModal() {
         </p>
         <div className="grid gap-4 md:grid-cols-4">
           {["1. Input Layer", "2. Validation Layer", "3. Generation Engine", "4. Distribution System"].map((stage, idx) => (
-             <div key={idx} className="rounded-xl border border-border bg-card/40 p-4 text-center text-sm font-semibold text-foreground/80">
-               {stage}
-             </div>
+            <div key={idx} className="rounded-xl border border-border bg-card/40 p-4 text-center text-sm font-semibold text-foreground/80">
+              {stage}
+            </div>
           ))}
         </div>
         <p className="mt-4 text-xs text-muted-foreground text-center">Each stage ensures consistency, scalability, and minimal human intervention.</p>
@@ -558,7 +558,7 @@ function CertifyAIModal() {
         <h4 className="mb-6 text-xl font-bold tracking-tight">Core Workflow Pipeline</h4>
         <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <div className="relative space-y-8 border-l-2 border-primary/20 pl-6 ml-4">
-            
+
             {/* Step 1 */}
             <div className="relative">
               <div className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-card bg-primary shadow-[0_0_0_4px_oklch(var(--background))]" />
@@ -594,7 +594,7 @@ function CertifyAIModal() {
                 <li>• Certificates are generated in bulk</li>
               </ul>
               <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-2">Generation Logic:</div>
-              <p className="text-xs text-muted-foreground leading-relaxed">Template → Placeholder mapping <br/> Data binding → Name, role, event <br/> Output → Rendered file (PDF/Image)</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">Template → Placeholder mapping <br /> Data binding → Name, role, event <br /> Output → Rendered file (PDF/Image)</p>
             </div>
 
             {/* Step 4 */}
@@ -624,7 +624,7 @@ function CertifyAIModal() {
             <li>• Designed reusable template system for different events</li>
           </ul>
         </div>
-        
+
         <div className="rounded-2xl border border-border bg-card/40 p-6">
           <h5 className="mb-3 font-semibold text-foreground flex items-center gap-2">
             <span className="text-primary">🚀</span> Deployment Context
@@ -796,19 +796,19 @@ function DukaanDostModal() {
         <h4 className="mb-6 text-xl font-bold tracking-tight">Core Interaction Pipeline</h4>
         <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <div className="relative space-y-8 border-l-2 border-primary/20 pl-6 ml-4">
-            
+
             {/* Step 1 */}
             <div className="relative">
               <div className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-card bg-primary shadow-[0_0_0_4px_oklch(var(--background))]" />
               <h5 className="font-semibold text-primary mb-2">1. Main Menu Engine</h5>
               <p className="text-sm text-foreground/80 mb-3">User is presented with a structured menu. Numeric input ensures simplicity and no ambiguity.</p>
               <div className="rounded-md bg-card border border-border p-3 font-mono text-xs text-muted-foreground">
-                Welcome to [Store Name] 😊<br/>
-                Please choose an option:<br/>
-                <br/>
-                1. View Products<br/>
-                2. Place an Order<br/>
-                3. Track an Order<br/>
+                Welcome to [Store Name] 😊<br />
+                Please choose an option:<br />
+                <br />
+                1. View Products<br />
+                2. Place an Order<br />
+                3. Track an Order<br />
                 4. Contact Support
               </div>
             </div>
@@ -829,7 +829,7 @@ function DukaanDostModal() {
               <h5 className="font-semibold text-primary mb-2">3. Order Placement Flow</h5>
               <p className="text-sm text-foreground/80 mb-3">Structured multi-step interaction: Select product → Enter quantity → Provide details → Confirm order.</p>
               <div className="rounded-md bg-card border border-border p-3 font-mono text-xs text-green-500/80 mb-2">
-                ✅ Your order has been placed successfully!<br/>
+                ✅ Your order has been placed successfully!<br />
                 Order ID: #1234
               </div>
               <p className="text-xs text-muted-foreground italic">Step-by-step input avoids user errors and mimics real checkout flow within chat.</p>
@@ -861,7 +861,7 @@ function DukaanDostModal() {
               <li><strong>Order History:</strong> Access past orders with date/status filtering</li>
             </ul>
           </div>
-          
+
           <div className="rounded-xl border border-border bg-secondary/30 p-5">
             <h5 className="mb-3 text-sm font-bold text-foreground">📈 Demand Analytics</h5>
             <ul className="space-y-2 text-xs text-foreground/80">
@@ -902,7 +902,7 @@ function DukaanDostModal() {
             <li>• Provides data-driven decision making</li>
           </ul>
         </div>
-        
+
         <div className="rounded-2xl border border-border bg-card/40 p-6">
           <h5 className="mb-3 font-semibold text-foreground flex items-center gap-2">
             <span className="text-primary">🔮</span> Future Scope
@@ -1051,26 +1051,26 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
           <div className="rounded-md border border-border bg-card/60 px-3 py-1 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">Teacher</div>
           <div className="rounded-md border border-border bg-card/60 px-3 py-1 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">Parent</div>
         </div>
-        
+
         <div className="h-3 w-px bg-border group-hover:bg-blue-500/30 transition-colors"></div>
-        
+
         <div className="rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-[10px] font-medium text-primary premium-shadow backdrop-blur-md transition-all hover:scale-105">
           React Frontend
         </div>
-        
+
         <div className="h-3 w-px bg-border group-hover:bg-blue-500/30 transition-colors"></div>
-        
+
         <div className="rounded-md border border-border bg-card/80 px-4 py-1.5 text-[10px] font-medium text-foreground backdrop-blur-md shadow-sm transition-all hover:border-blue-500/50">
           Node.js API
         </div>
-        
+
         <div className="relative flex h-4 w-full items-center justify-center group-hover:*:bg-blue-500/30 *:transition-colors">
           <div className="h-full w-px bg-border"></div>
           <div className="absolute top-1/2 h-px w-48 bg-border -translate-y-1/2"></div>
           <div className="absolute left-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
           <div className="absolute right-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
         </div>
-        
+
         <div className="flex flex-wrap items-center justify-center gap-2 max-w-[260px]">
           <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">OCR</div>
           <div className="rounded-md border border-border bg-secondary/40 px-2 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-blue-500/50">Attendance</div>
@@ -1095,22 +1095,22 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
           CSV Upload
         </div>
         <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
-        
+
         <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
           Validation Layer
         </div>
         <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
-        
+
         <div className="w-48 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2 text-center text-[10px] font-semibold text-emerald-500 premium-shadow transition-all hover:scale-105">
           Generation Engine
         </div>
         <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
-        
+
         <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
           PDF Output + Email
         </div>
         <div className="text-emerald-500/70 animate-bounce my-0.5 text-[10px]">↓</div>
-        
+
         <div className="w-48 rounded-lg border border-border bg-card/60 p-2 text-center text-[10px] font-medium shadow-sm transition-all hover:scale-105 hover:border-emerald-500/50">
           Receive Certificates
         </div>
@@ -1125,26 +1125,26 @@ function ArchitectureDiagram({ projectTitle }: { projectTitle: string }) {
         <div className="rounded-md border border-border bg-card/60 px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Customer</div>
         <div className="rounded-md border border-border bg-card/60 px-4 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">Shop Owner</div>
       </div>
-      
+
       <div className="h-3 w-px bg-border group-hover:bg-amber-500/30 transition-colors"></div>
-      
+
       <div className="rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-5 py-1.5 text-[10px] font-medium text-[#25D366] premium-shadow transition-all hover:scale-105">
         WhatsApp API Gateway
       </div>
-      
+
       <div className="h-3 w-px bg-border group-hover:bg-amber-500/30 transition-colors"></div>
-      
+
       <div className="rounded-md border border-border bg-card/80 px-5 py-1.5 text-[10px] font-medium text-foreground shadow-sm transition-all hover:border-amber-500/50">
         Node.js Backend
       </div>
-      
+
       <div className="relative flex h-4 w-full items-center justify-center group-hover:*:bg-amber-500/30 *:transition-colors">
         <div className="h-full w-px bg-border"></div>
         <div className="absolute top-1/2 h-px w-48 bg-border -translate-y-1/2"></div>
         <div className="absolute left-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
         <div className="absolute right-[calc(50%-6rem)] top-1/2 h-2 w-px bg-border"></div>
       </div>
-      
+
       <div className="flex gap-3">
         <div className="rounded-md border border-border bg-secondary/40 px-3 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-amber-500/50">Menu</div>
         <div className="rounded-md border border-border bg-secondary/40 px-3 py-1 text-[9px] font-medium text-muted-foreground transition-all hover:border-amber-500/50">Order Flow</div>
@@ -1214,7 +1214,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             onClick={onClose}
             className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
           </button>
         </div>
 
@@ -1225,36 +1225,36 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-card/50 flex items-center justify-center group">
                 {screenshots.length > 0 ? (
                   <>
-                    <motion.img 
+                    <motion.img
                       key={currentImage}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
-                      src={screenshots[currentImage]} 
-                      alt="Screenshot" 
+                      src={screenshots[currentImage]}
+                      alt="Screenshot"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition-opacity hover:opacity-100 cursor-zoom-in" 
+                      className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition-opacity hover:opacity-100 cursor-zoom-in"
                     />
                     {screenshots.length > 1 && (
                       <>
-                        <button 
-                          onClick={() => setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1)} 
+                        <button
+                          onClick={() => setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1)}
                           className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 text-foreground opacity-0 backdrop-blur transition-opacity hover:bg-background group-hover:opacity-100"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
                         </button>
-                        <button 
-                          onClick={() => setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1)} 
+                        <button
+                          onClick={() => setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1)}
                           className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 text-foreground opacity-0 backdrop-blur transition-opacity hover:bg-background group-hover:opacity-100"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                         </button>
                         <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5 rounded-full bg-background/60 px-2 py-1 backdrop-blur">
                           {screenshots.map((_, idx) => (
-                            <button 
-                              key={idx} 
+                            <button
+                              key={idx}
                               onClick={() => setCurrentImage(idx)}
-                              className={`h-1.5 w-1.5 rounded-full transition-colors ${idx === currentImage ? 'bg-primary' : 'bg-primary/30 hover:bg-primary/60'}`} 
+                              className={`h-1.5 w-1.5 rounded-full transition-colors ${idx === currentImage ? 'bg-primary' : 'bg-primary/30 hover:bg-primary/60'}`}
                             />
                           ))}
                         </div>
@@ -1276,7 +1276,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
           {project.demoCredentials && (
             <div className="mb-8 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-foreground flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
               <span><span className="font-semibold text-primary">Demo Credentials:</span> {project.demoCredentials}</span>
             </div>
           )}
@@ -1294,42 +1294,42 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 md:p-8 backdrop-blur-2xl"
             onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
           >
-            <button 
+            <button
               className="absolute right-4 top-4 md:right-8 md:top-8 rounded-full border border-border bg-card/50 p-3 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
               onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
             </button>
-            
-            <motion.div 
+
+            <motion.div
               className="relative flex items-center justify-center w-full h-full max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.img 
+              <motion.img
                 key={`lb-${currentImage}`}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                src={screenshots[currentImage]} 
-                alt="Screenshot Fullscreen" 
+                src={screenshots[currentImage]}
+                alt="Screenshot Fullscreen"
                 className="max-h-full max-w-full object-contain rounded-xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)]"
               />
             </motion.div>
 
             {screenshots.length > 1 && (
               <>
-                <button 
-                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1); }} 
+                <button
+                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === 0 ? screenshots.length - 1 : p - 1); }}
                   className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-border bg-card/50 p-3 md:p-4 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
                 </button>
-                <button 
-                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1); }} 
+                <button
+                  onClick={(e) => { e.stopPropagation(); setCurrentImage(p => p === screenshots.length - 1 ? 0 : p + 1); }}
                   className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-border bg-card/50 p-3 md:p-4 text-foreground backdrop-blur transition-all hover:bg-secondary hover:scale-105 z-[101]"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                 </button>
               </>
             )}
@@ -1428,7 +1428,7 @@ function ProjectCard({ p, i, onOpenModal }: { p: Project; i: number; onOpenModal
                       No Live Demo
                     </div>
                   )}
-                  
+
                   {p.githubLink ? (
                     <a href={p.githubLink} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-full border border-border bg-card/60 px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-foreground transition-all hover:bg-secondary">
                       View Code ↗
