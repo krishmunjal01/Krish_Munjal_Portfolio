@@ -73,15 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Krish Munjal - Building AI systems that give you your time back." },
-      { name: "description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
+      { name: "description", content: "Krish Munjal is a software engineer and product builder from India specializing in AI automation systems and real-world products. View my portfolio, projects, and resume." },
       { name: "author", content: "Krish Munjal" },
-      { property: "og:title", content: "Krish Munjal - Portfolio" },
-      { property: "og:description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
+      { property: "og:title", content: "Krish Munjal - Building AI systems that give you your time back." },
+      { property: "og:description", content: "Krish Munjal is a software engineer and product builder from India specializing in AI automation systems and real-world products." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://krishmunjal.dev/" },
+      { property: "og:image", content: "https://krishmunjal.dev/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@KrishMunjal" },
-      { name: "twitter:title", content: "Krish Munjal - Portfolio" },
-      { name: "twitter:description", content: "A premium, modern, dark-theme personal portfolio website showcasing AI-powered products and automation systems." },
+      { name: "twitter:title", content: "Krish Munjal - Building AI systems that give you your time back." },
+      { name: "twitter:description", content: "Krish Munjal is a software engineer and product builder from India specializing in AI automation systems and real-world products." },
+      { name: "twitter:image", content: "https://krishmunjal.dev/og-image.png" },
     ],
     links: [
       {
@@ -92,6 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
       { rel: "stylesheet", href: "https://api.fontshare.com/v2/css?f[]=satoshi@700,500,900&display=swap" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,6 +121,25 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
   gtag('config', 'G-E4KB2M1B3T');
             `,
+          }}
+        />
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Krish Munjal",
+              "url": "https://krishmunjal.dev",
+              "image": "https://krishmunjal.dev/og-image.png",
+              "jobTitle": "Software Engineer",
+              "description": "Software engineer based in India, actively looking for internships and roles where I can build AI automation and real-world products.",
+              "sameAs": [
+                "https://github.com/krishmunjal01",
+                "https://www.linkedin.com/in/krishmunjal/"
+              ]
+            }),
           }}
         />
       </head>
