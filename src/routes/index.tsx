@@ -454,7 +454,7 @@ function EduAutoModal() {
             <h5 className="mb-3 text-sm font-semibold text-primary">Core Entities</h5>
             <div className="flex flex-wrap gap-2">
               {["Schools (tenant root)", "Users (role-based)", "Students (global identity)", "Sections", "Results", "Attendance", "Leaves", "Audit Logs"].map((entity, idx) => (
-                <span key={idx} className="rounded-md border border-primary/30 bg-background/50 px-2.5 py-1 text-xs font-mono text-primary-foreground">
+                <span key={idx} className="rounded-md border border-primary/30 bg-background/50 px-2.5 py-1 text-xs font-mono text-primary">
                   {entity}
                 </span>
               ))}
