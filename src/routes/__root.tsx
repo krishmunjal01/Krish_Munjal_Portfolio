@@ -75,6 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Krish Munjal - Building AI systems that give you your time back." },
       { name: "description", content: "Krish Munjal is a software engineer and product builder from India specializing in AI automation systems and real-world products. View my portfolio, projects, and resume." },
       { name: "author", content: "Krish Munjal" },
+      { property: "og:site_name", content: "Krish Munjal" },
       { property: "og:title", content: "Krish Munjal - Building AI systems that give you your time back." },
       { property: "og:description", content: "Krish Munjal is a software engineer and product builder from India specializing in AI automation systems and real-world products." },
       { property: "og:type", content: "website" },
@@ -127,19 +128,27 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Krish Munjal",
-              "url": "https://krishmunjal.dev",
-              "image": "https://krishmunjal.dev/og-image.png",
-              "jobTitle": "Software Engineer",
-              "description": "Software engineer based in India, actively looking for internships and roles where I can build AI automation and real-world products.",
-              "sameAs": [
-                "https://github.com/krishmunjal01",
-                "https://www.linkedin.com/in/krishmunjal/"
-              ]
-            }),
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Krish Munjal",
+                "url": "https://krishmunjal.dev",
+                "image": "https://krishmunjal.dev/og-image.png",
+                "jobTitle": "Software Engineer",
+                "description": "Software engineer based in India, actively looking for internships and roles where I can build AI automation and real-world products.",
+                "sameAs": [
+                  "https://github.com/krishmunjal01",
+                  "https://www.linkedin.com/in/krishmunjal/"
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Krish Munjal",
+                "url": "https://krishmunjal.dev/"
+              }
+            ]),
           }}
         />
       </head>
