@@ -953,14 +953,14 @@ const projects: Project[] = [
     liveLink: "https://edu-auto.vercel.app/",
     demoCredentials: "Login: testadmin@gmail.com | Pass: testadmin",
     screenshots: [
-      "/eduauto/1.png",
-      "/eduauto/2.png",
-      "/eduauto/3.png",
-      "/eduauto/4.png",
-      "/eduauto/5.png",
-      "/eduauto/6.png",
-      "/eduauto/7.png",
-      "/eduauto/8.png",
+      "/eduauto/1.jpg",
+      "/eduauto/2.jpg",
+      "/eduauto/3.jpg",
+      "/eduauto/4.jpg",
+      "/eduauto/5.jpg",
+      "/eduauto/6.jpg",
+      "/eduauto/7.jpg",
+      "/eduauto/8.jpg",
     ]
   },
   {
@@ -981,7 +981,7 @@ const projects: Project[] = [
     helperText: "Preview available - no login required",
     modalContent: <CertifyAIModal />,
     proprietaryLabel: "Internal: IEEE CIS CUSB",
-    screenshots: ["/certify/1.png", "/certify/2.png", "/certify/4.png", "/certify/5.png"]
+    screenshots: ["/certify/1.jpg", "/certify/2.jpg", "/certify/4.jpg", "/certify/5.jpg"]
   },
   {
     tag: "Automation",
